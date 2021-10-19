@@ -1,10 +1,9 @@
 /*******************************************************************************
  * Licensed Materials - Property of IBM
- * (c) Copyright IBM Corporation 2017. All Rights Reserved.
- *
+ * (c) Copyright HCL Technologies Ltd. 2018, 2019, 2020, 2021. All Rights Reserved.
  * Note to U.S. Government Users Restricted Rights:  Use,
  * duplication or disclosure restricted by GSA ADP Schedule
- * Contract with IBM Corp.
+ * Contract with HCL Corp.
  *******************************************************************************/
 package com.hcl.devops.connect;
 

@@ -1,8 +1,8 @@
 /**
- * (c) Copyright IBM Corporation 2018.
+ * (c)  Copyright HCL Technologies Ltd. 2018, 2019, 2020, 2021.
  * This is licensed under the following license.
  * The Apache License, Version 2.0 (http://www.apache.org/licenses/LICENSE-2.0)
- * U.S. Government Users Restricted Rights:  Use, duplication or disclosure restricted by GSA ADP Schedule Contract with IBM Corp.
+ * U.S. Government Users Restricted Rights:  Use, duplication or disclosure restricted by GSA ADP Schedule Contract with HCL Corp.
  */
 
 package com.hcl.devops.connect.CRPipeline;
