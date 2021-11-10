@@ -51,7 +51,7 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
           upload_url: ${{ steps.create-new-release.outputs.upload_url }}
-          asset_path: ./hcl-accelerate
+          asset_path: ./hcl-accelerate.zip
           asset_name: hcl-accelerate-v${{ github.run_number }}.zip
           asset_content_type: application/zip
       
