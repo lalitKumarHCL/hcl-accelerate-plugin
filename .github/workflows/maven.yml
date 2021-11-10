@@ -28,6 +28,15 @@ jobs:
       with:
         name: hcl-accelerate
         path: /home/runner/work/hcl-accelerate-plugin/hcl-accelerate-plugin/target/hcl-accelerate.hpi
+    - name: Extract GAV
+      id: extract
+      uses: andreacomo/maven-gav-extractor@v1
+    - name: Log GAV
+      run: |
+        echo ${{ steps.extract.outputs.group-id }}
+        echo ${{ steps.extract.outputs.artifact-id }}
+        echo ${{ steps.extract.outputs.version }}
+      shell: bash
   release-project:
     name: Release Artifact
     runs-on: ubuntu-latest
