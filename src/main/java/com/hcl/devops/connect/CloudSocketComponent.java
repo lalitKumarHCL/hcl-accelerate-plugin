@@ -188,6 +188,11 @@ public class CloudSocketComponent {
 
                         String url = removeTrailingSlash(Jenkins.getInstance().getDescriptorByType(DevOpsGlobalConfiguration.class).getBaseUrl());
                         boolean connected = CloudPublisher.testConnection(syncId, syncToken, url);
+                        if (connected) {
+                            System.out.println("Connected to accelerate");
+                        } else {
+                            System.out.println("Not Connected");
+                        }
                     } else {
                         String message = new String(body, "UTF-8");
                         String payload = null;
