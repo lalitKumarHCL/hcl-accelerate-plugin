@@ -23,11 +23,6 @@ jobs:
         cache: maven
     - name: Build with Maven
       run: mvn -B package --file pom.xml
-    - name: Upload Artifacts
-      uses: actions/upload-artifact@v2
-      with:
-        name: hcl-accelerate
-        path: /home/runner/work/hcl-accelerate-plugin/hcl-accelerate-plugin/target/hcl-accelerate.hpi
     - name: Extract GAV
       id: extract
       uses: andreacomo/maven-gav-extractor@v1
@@ -37,6 +32,11 @@ jobs:
         echo ${{ steps.extract.outputs.artifact-id }}
         echo ${{ steps.extract.outputs.version }}
       shell: bash
+    - name: ${{ steps.extract.outputs.artifact-id }}:${{ steps.extract.outputs.version }}
+      uses: actions/upload-artifact@v2
+      with:
+        name: hcl-accelerate
+        path: /home/runner/work/hcl-accelerate-plugin/hcl-accelerate-plugin/target/hcl-accelerate.hpi
   release-project:
     name: Release Artifact
     runs-on: ubuntu-latest
@@ -45,11 +45,7 @@ jobs:
       - name: Download site content
         uses: actions/download-artifact@v2
         with:
-          name: hcl-accelerate
-      - name: Archive site content
-        uses: thedoctor0/zip-release@master
-        with:
-          filename: hcl-accelerate.zip
+          name: ${{ steps.extract.outputs.artifact-id }}:${{ steps.extract.outputs.version }}
       - name: Create GitHub release
         id: create-new-release
         uses: actions/create-release@v1
@@ -66,6 +62,6 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
           upload_url: ${{ steps.create-new-release.outputs.upload_url }}
-          asset_path: hcl-accelerate.hpi
-          asset_name: hcl-accelerate-v${{ github.run_number }}.hpi
+          asset_path: ${{ steps.extract.outputs.artifact-id }}:${{ steps.extract.outputs.version }}.hpi
+          asset_name: ${{ steps.extract.outputs.artifact-id }}:${{ steps.extract.outputs.version }}.hpi
           asset_content_type: application/zip
