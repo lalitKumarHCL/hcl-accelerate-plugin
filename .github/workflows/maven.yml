@@ -58,6 +58,6 @@ jobs:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       with:
         upload_url: ${{ steps.create-new-release.outputs.upload_url }}
-        asset_path: ${{ steps.extract.outputs.artifact-id }}-${{ steps.extract.outputs.version }}.hpi
+        asset_path: /home/runner/work/hcl-accelerate-plugin/hcl-accelerate-plugin/target/hcl-accelerate.hpi
         asset_name: ${{ steps.extract.outputs.artifact-id }}-${{ steps.extract.outputs.version }}.hpi
         asset_content_type: application/zip
