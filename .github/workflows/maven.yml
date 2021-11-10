@@ -35,7 +35,7 @@ jobs:
     - name: ${{ steps.extract.outputs.artifact-id }}:${{ steps.extract.outputs.version }}
       uses: actions/upload-artifact@v2
       with:
-        name: hcl-accelerate
+        name: ${{ steps.extract.outputs.artifact-id }}:${{ steps.extract.outputs.version }}
         path: /home/runner/work/hcl-accelerate-plugin/hcl-accelerate-plugin/target/hcl-accelerate.hpi
 
     - name: Download site content
