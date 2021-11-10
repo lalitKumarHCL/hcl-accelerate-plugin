@@ -54,6 +54,4 @@ jobs:
         with:
           upload_url: ${{ steps.create-new-release.outputs.upload_url }}
           asset_path: hcl-accelerate.hpi
-          asset_name: hcl-accelerate-v${{ github.run_number }}.zip
-          asset_content_type: application/hpi
-      
+          asset_name: hcl-accelerate-v${{ github.run_number }}.hpi    
